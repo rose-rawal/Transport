@@ -4,8 +4,8 @@ import context from '../component/context/maincontext'
 const Login = () => {
     const [detail,setDetail]=useState({})
     const [signDetail,setSignDetail]=useState({})
-    const {loginValidation,signUpValidation}=useContext(context)
-    const [signUp,setSignUp]=useState(true)
+    const {loginValidation,signUpValidation,loginErr,signErr}=useContext(context)
+    const [signUp,setSignUp]=useState(false)
     const handleChange=(e,param)=>{
         setDetail(n=>{return {...detail,[param]:e.target.value}})
         
@@ -32,8 +32,10 @@ const Login = () => {
     <div>
                                                            {/*Login*/}
     {!signUp?<div className='w-2/3 m-auto'>
+        
         <h1 className=' text-center text-4xl font-extrabold pt-10 mb-10'>Login</h1>
-        <form action=""  className='flex flex-col items-center text-lg gap-1'>
+        <form action=""  className='flex flex-col items-center text-lg gap-1 relative'>
+        {loginErr && (<div className='text-center absolute -top-7 text-red-700'>Account Not Found</div>)}
         Name:<input type="text" onChange={e=>handleChange(e,'Name')} className=' border-solid border-2 border-red-400 w-1/4 h-12 rounded-2xl text-center mb-2' />
         Password:<input type="text" onChange={e=>handleChange(e,'Password')} className=' border-solid border-2 border-red-400 w-1/4 h-12 rounded-2xl text-center'/>
         <button type='Submit' className='bg-red-400 w-1/6 h-12 rounded-2xl font-extrabold text-white hover:scale-110 transition-all mt-10' onClick={handleSubmit}>Login</button>
@@ -43,7 +45,8 @@ const Login = () => {
     
     :<div className='w-2/3 m-auto'>                         {/*SignUp */}
         <h1 className=' text-center text-4xl font-extrabold pt-10 mb-10'>SignUp</h1>
-        <form action=""  className='flex flex-col items-center text-lg gap-1'>
+        <form action=""  className='flex flex-col items-center text-lg gap-1 relative'>
+        {signErr && (<div className='text-center absolute -top-7 text-red-700'>Change Credentials</div>)}
         Name:<input type="text" onChange={e=>handleSignChange(e,'Name')} className=' border-solid border-2 border-red-400 w-1/4 h-12 rounded-2xl text-center mb-2' />
         Password:<input type="text" onChange={e=>handleSignChange(e,'Password')} className=' border-solid border-2 border-red-400 w-1/4 h-12 rounded-2xl text-center'/>
         Email:<input type="text" onChange={e=>handleSignChange(e,'Email')} className=' border-solid border-2 border-red-400 w-1/4 h-12 rounded-2xl text-center'/>

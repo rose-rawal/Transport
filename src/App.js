@@ -3,7 +3,7 @@ import {BrowserRouter as Router,Routes,Route} from 'react-router-dom'
 import route from './routes'
 import Header from './layout'
 import Login from './pages/Login'
-
+import './App.css'
 import context from './component/context/maincontext'
 const App = () => {
   const {loggedIn}=useContext(context)

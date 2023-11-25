@@ -20,13 +20,15 @@ const useUser = () => {
   const fetchUser=async(details)=>{
     const user=await getUser(details)
     setLoggedUser(user)
+    console.log(loggedUser)
     return user
   }
-  const postUser=async(details)=>{
+  const postUserz=async(details)=>{
+    // console.log('object')
     const newUser=await postUser(details)
     return newUser
   }
-  return {fetchUsers,loaded,fetchUser,postUser}
+  return {fetchUsers,loaded,fetchUser,postUserz}
 }
 
 export default useUser

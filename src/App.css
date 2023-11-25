@@ -1,0 +1,7 @@
+.screen_swiper{
+    height: 40vh;
+}
+.hoverToBlack:hover{
+    background-color: black;
+    
+}
