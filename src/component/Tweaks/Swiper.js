@@ -59,7 +59,10 @@ type==='hot'?
     :
     cars.map((n,i)=>(<SwiperSlide key={n._id} >
     <div className=' screen_swiper relative rounded-xl overflow-hidden'><img src={car[i%5]} alt="acnac" className='h-full' />
-    <div className='absolute bottom-2 right-5 text-white text-3xl font-bold hover:text-red-500'>{n.Name}</div>
+    <div className='absolute bottom-2 right-5 text-white text-3xl font-bold hover:text-red-500'>
+      <div className=' text-right'>{n.Name}</div>
+      <p className=' text-lg'>${n.Price}M</p>
+    </div>
         
     </div></SwiperSlide>))
 }

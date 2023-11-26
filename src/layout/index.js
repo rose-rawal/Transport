@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom'
 const Header = () => {
     const navigate=useNavigate()
   return (
-    <div className='flex justify-between bg-red-400 absolute w-full'>
+    <div className='flex justify-between bg-red-400 absolute w-full z-20'>
         <h1 className='text-3xl font-bold text-white pl-5 py-4'>TpOrT</h1>
         <div className='w-1/2 '>
             <ul className='flex w-full font-mono text-xl h-full'>

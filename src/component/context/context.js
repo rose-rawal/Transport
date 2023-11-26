@@ -6,7 +6,8 @@ import UseCar from '../../hook/useCar'
 const Context = ({children}) => {
     const {getCars}=UseCar()
     const [cars,setCars]=useState([])
-    
+    const [myCar,setMyCar]=useState({Name:''})
+    const [user,setUser]=useState({Name:''})
 useEffect(() => {
   const fetchData = async () => {
     try {
@@ -23,7 +24,7 @@ useEffect(() => {
 
     
     
-    const [loggedIn,setLoggedIn]=useState(true)
+    const [loggedIn,setLoggedIn]=useState(false)
     const [loginErr,setLoginErr]=useState(false)
     const [signErr,setSignErr]=useState(false)
     const {fetchUser,postUserz}=useUser()
@@ -38,6 +39,7 @@ useEffect(() => {
             },4000)
             }
             else{
+                setUser(response[0])
                 setLoggedIn(true)
             }
             
@@ -77,7 +79,7 @@ useEffect(() => {
     
     
   return (
-    <context.Provider value={{loggedIn,setLoggedIn,loginValidation,signUpValidation,loginErr,setLoginErr,signErr,setSignErr,cars}}>
+    <context.Provider value={{loggedIn,setLoggedIn,loginValidation,signUpValidation,loginErr,setLoginErr,signErr,setSignErr,cars,myCar,setMyCar,user}}>
     {children}
     </context.Provider>
   )

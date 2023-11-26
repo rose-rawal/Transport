@@ -3,22 +3,21 @@ import React, { useEffect, useState }  from 'react'
 import UseCar from '../hook/useCar'
 import {motion} from 'framer-motion'
 import car from '../image/car1.jpg'
-
+import search from '../image/home-search-car.jpg'
 import Swiperz from '../component/Tweaks/Swiper'
+import WhyUs from './mini/WhyUs'
 const Home = () => {
   
   // const [cars,setCars]=useState([])
   // setInterval(()=>{console.log(all)},2000)
   // const {getCars}=UseCar()
   
-  
+
   window.addEventListener('scroll',()=>{
     const expand=document.querySelector('.expand')
     const scroll=window.scrollY
-    console.log(scroll)
-    if(scroll){
-      expand.style.transform=`scale(${scroll*2})`
-    
+    if(expand && scroll){
+      expand.style.transform=`rotate(${scroll}deg) scale(${scroll*1.2})`
     }
 
 
@@ -41,7 +40,7 @@ const Home = () => {
         animate={{x:0}}
         className='flex items-center'><img src={car} alt=""/></motion.div>
       </div>
-      <div><h1 className='text-3xl font-extrabold font-serif mb-20 text-red-400'>Hottest Deals</h1></div>
+      <div><h1 className='text-3xl font-extrabold font-serif mb-20 text-red-700'>Hottest Deals</h1></div>
       
       <Swiperz type='hot'/>
 
@@ -63,9 +62,25 @@ const Home = () => {
           <button className='bg-white mt-4 px-14 py-1 rounded-2xl hover:scale-125 transition-all text-black'>Search</button>
         </form>
       </div>
-      <div className='bg-white w-full'><h2 className='text-center'>Hello world</h2></div>
+      <div className=' w-full rounded-2xl my-auto'>
+        <img src={search} alt="" />
+      </div>
     
     </div>
+    <div className='w-full h-1  bg-white my-5'></div>
+
+    <div className='text-white'><h3 className='font-extrabold text-2xl pt-5'>Why Us?</h3>
+      <WhyUs/>
+    </div>
+    <div className='w-full h-1  bg-white my-5'></div>
+    <motion.div
+    initial={{opacity:0}}
+    whileInView={{opacity:1}}
+    transition={{duration:2,delay:0.5}}
+     className='h-screen text-white font-mono text-9xl text-center pt-40'>
+      Come Lets Find Your Future!
+    </motion.div>
+
     </div>
     </div>
   )

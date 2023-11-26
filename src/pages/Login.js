@@ -29,7 +29,7 @@ const Login = () => {
         setSignUp(!signUp)
     }
   return (
-    <div>
+    <div className='pt-20'>
                                                            {/*Login*/}
     {!signUp?<div className='w-2/3 m-auto'>
         
