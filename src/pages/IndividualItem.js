@@ -31,7 +31,9 @@ const IndividualItem = () => {
             <div key={i}><FontAwesomeIcon icon={faStar}/></div>
         ))}</div>
         <div className='mt-2'>Brand: Ferrari</div>
-        <div className='text-4xl pt-10 text-red-600'>$ {myCar.Price-myCar.Price*20/100}M</div>
+        <div className='pt-10'><b>Initial Price:</b>${myCar.Price}</div>
+        <div className='text-4xl pt-2 text-red-600'>$ {myCar.Price-myCar.Price*20/100}M</div>
+        
         <button className='text-xl mt-10 bg-red-300 px-4 py-3 rounded-3xl text-white hover:scale-125 hover:bg-red-400 transition-all' onClick={handleBuy}>Buy Now</button>
       </div>
       <div className='text-xs pr-5 space-y-3'>

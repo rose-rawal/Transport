@@ -16,7 +16,7 @@ const Item = ({data,i}) => {
             <img src={car[i%5]} alt={data.Name} />
         </div>
         <div className='flex justify-between p-3'><h4 className='font-bold'>{data.Name}</h4>
-        <h5>$ {data.Price}M</h5></div>
+        <h5 className='text-red-600'>$ {data.Price}M</h5></div>
         <div className='flex px-3'>{Array.from({ length: 5 }, (_, i) => (
             <div key={i}><FontAwesomeIcon icon={faStar}/></div>
         ))}</div>
