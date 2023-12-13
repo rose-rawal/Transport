@@ -17,7 +17,7 @@ const Store = () => {
         </div>)}
 
         </div>
-        <motion.div initial={{x:200}} animate={{x:0}} transition={{delay:1}} className=' h-screen w-64 bg-slate-200 mt-32 text-center px-5 flex flex-col justify-between pb-5 border-2 border-solid border-red-300 rounded-2xl shadow-xl shadow-black'>
+        <motion.div initial={{x:2000}} animate={{x:0}} className=' h-screen w-64 bg-slate-200 mt-32 text-center px-5 flex flex-col justify-between pb-5 border-2 border-solid border-red-300 rounded-2xl shadow-xl shadow-black'>
           <h3 className='text-2xl py-5 text-red-500'>Notice!!</h3>
           <motion.p initial={{opacity:0}} animate={{opacity:1}} transition={{duration:2}}>Why not think for a minute for your initial Purchase?</motion.p>
           <motion.p initial={{opacity:0}} animate={{opacity:1}} transition={{duration:2,delay:1.2}}>If you buy now!?</motion.p>

@@ -8,6 +8,7 @@ const Context = ({children}) => {
     const [cars,setCars]=useState([])
     const [myCar,setMyCar]=useState({Name:''})
     const [user,setUser]=useState({Name:''})
+    const [success,setSuccess]=useState(false)
 useEffect(() => {
   const fetchData = async () => {
     try {
@@ -79,7 +80,7 @@ useEffect(() => {
     
     
   return (
-    <context.Provider value={{loggedIn,setLoggedIn,loginValidation,signUpValidation,loginErr,setLoginErr,signErr,setSignErr,cars,myCar,setMyCar,user}}>
+    <context.Provider value={{loggedIn,setLoggedIn,loginValidation,signUpValidation,loginErr,setLoginErr,signErr,setSignErr,cars,myCar,setMyCar,user,success,setSuccess}}>
     {children}
     </context.Provider>
   )

@@ -16,7 +16,10 @@ const Home = () => {
   window.addEventListener('scroll',()=>{
     const expand=document.querySelector('.expand')
     const scroll=window.scrollY
-    if(expand && scroll){
+    if(expand && scroll===0){
+      expand.style.transform=`scale(0)`
+    }
+    else if(expand && scroll){
       expand.style.transform=`rotate(${scroll}deg) scale(${scroll*1.2})`
     }
 

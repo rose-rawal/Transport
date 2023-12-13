@@ -1,12 +1,19 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 import context from '../component/context/maincontext'
 import car1 from '../image/car1.jpg'
-const Payment = () => {
 
-    const {myCar,user}=useContext(context)
+const Payment = () => {
+    
+    const {myCar,user,setSuccess}=useContext(context)
+    const handleCash=(e)=>{
+        e.preventDefault();
+        setSuccess(true);
+        setTimeout(()=>{setSuccess(false)},3000)
+    }
   return (
-    <div className='pt-20 w-4/5 m-auto flex gap-5'>
-        <div  className='border-black border-solid border-2 flex-1 pb-5'>
+    <div className='pt-20 w-4/5 m-auto flex gap-5 relative'>
+    
+        <div  className=' flex-1 p-5 bg-slate-100'>
             <div className='text-2xl font-bold mb-10'>Product Details:</div>
             <div className='flex gap-5'>
                 <div><img src={car1} alt="" className=' w-64'/></div>
@@ -22,14 +29,13 @@ const Payment = () => {
                     <div><b>Email:</b>{user.Email}</div>
                     <div><b>Age:</b>{user.Age}</div>
                     <div><b>Location:</b>Kathmandu,Baneshwor</div>
-                    
                     <div className='text-3xl py-10'>Total Price: $ {myCar.Price-myCar.Price*20/100}M</div>
                     <div className='text-center'>
                         <h4 className='pb-4'>Pay Via:</h4>
                         <ul className='flex justify-between'>
-                            <li><button className='px-4 py-2 bg-red-300 rounded-3xl hover:scale-125 hover:bg-red-400 transition-all'>Cash</button></li>
+                            <li><button className='px-4 py-2 bg-red-300 rounded-3xl hover:scale-125 hover:bg-red-400 transition-all' onClick={handleCash}>Cash</button></li>
                             <li><button className='px-4 py-2 bg-red-300 rounded-3xl hover:scale-125 hover:bg-red-400 transition-all'>Khalti</button></li>
-                            <li><button className='px-4 py-2 bg-red-300 rounded-3xl hover:scale-125 hover:bg-red-400 transition-all'>Esewa</button></li>
+                            
                         </ul>
                     </div>
 

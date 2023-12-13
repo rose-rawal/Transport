@@ -7,13 +7,14 @@ import './App.css'
 import context from './component/context/maincontext'
 import IndividualItem from './pages/IndividualItem'
 import Payment from './pages/Payment'
+import SuccessCash from './pages/mini/SuccessCash'
 const App = () => {
-  const {loggedIn}=useContext(context)
+  const {loggedIn,success}=useContext(context)
 
   //  const [loggedIn,setLoggedIn]=useState(false)
   return (
-    <div className='overflow-hidden'>
-    
+    <div className='overflow-hidden relative'>
+    {success?<SuccessCash/>:<></>}
       <Router>
         <Header/>
 
