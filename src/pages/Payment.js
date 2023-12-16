@@ -1,14 +1,40 @@
 import React, { useContext, useState } from 'react'
 import context from '../component/context/maincontext'
 import car1 from '../image/car1.jpg'
-
+import axios from 'axios'
+import { getPayment } from '../api/cars'
 const Payment = () => {
-    
+   
     const {myCar,user,setSuccess}=useContext(context)
     const handleCash=(e)=>{
         e.preventDefault();
         setSuccess(true);
         setTimeout(()=>{setSuccess(false)},3000)
+    }
+    const handleBuy=async(e)=>{
+        e.preventDefault();
+        // console.log(myCar)
+        const payload={
+  "return_url": 'http://localhost:3000/cart',
+  "website_url": "http://localhost:3000",
+  "amount": (myCar.Price-myCar.Price*20/100)*1000,
+  "purchase_order_id": "test12",
+  "purchase_order_name": "test",
+  "customer_info": {
+      "name": user.Name
+  }
+  
+}
+
+    try{
+        const response=await getPayment(payload)
+        console.log(response.data)
+        if(response){
+            window.location.href=`${response?.data?.payment_url}`
+            // console.log(response?.data?.payment_url)
+        }
+    }
+    catch(error){console.log('error:'+error)}
     }
   return (
     <div className='pt-20 w-4/5 m-auto flex gap-5 relative'>
@@ -34,7 +60,7 @@ const Payment = () => {
                         <h4 className='pb-4'>Pay Via:</h4>
                         <ul className='flex justify-between'>
                             <li><button className='px-4 py-2 bg-red-300 rounded-3xl hover:scale-125 hover:bg-red-400 transition-all' onClick={handleCash}>Cash</button></li>
-                            <li><button className='px-4 py-2 bg-red-300 rounded-3xl hover:scale-125 hover:bg-red-400 transition-all'>Khalti</button></li>
+                            <li><button className='px-4 py-2 bg-red-300 rounded-3xl hover:scale-125 hover:bg-red-400 transition-all' onClick={handleBuy}>Khalti</button></li>
                             
                         </ul>
                     </div>
