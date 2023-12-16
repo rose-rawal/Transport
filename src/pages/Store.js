@@ -6,7 +6,13 @@ const Store = () => {
     const {cars}=useContext(context)
     const [search,setSearch]=useState('')
   return (
-    <div className='pt-20 w-4/5 m-auto flex gap-5 justify-between'>
+    <motion.div 
+    key='store'
+    initial={{x:'150vw'}}
+    animate={{x:0}}
+    exit={{x:'-150vw'}}
+    transition={{duration:0.5, type:'spring'}}
+    className='pt-20 w-4/5 m-auto flex gap-5 justify-between'>
         
         
         <div className='flex-1'>
@@ -25,7 +31,7 @@ const Store = () => {
           <motion.p initial={{opacity:0}} animate={{opacity:1}} transition={{duration:2, delay:1.6}}>Exclusive offer and Once in a lifetime Opportunity!!</motion.p>
           
         </motion.div>
-    </div>
+    </motion.div>
   )
 }
 

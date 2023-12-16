@@ -27,7 +27,13 @@ const Home = () => {
   })
  
   return (
-    <div className='relative'>
+    <motion.div 
+    key='home'
+    initial={{x:'150vw'}}
+    animate={{x:0}}
+    exit={{x:'-150vw'}}
+    transition={{duration:0.5,type:'spring'}}
+     className='relative'>
     <div className='w-2 h-2 bg-black absolute -z-10 expand'></div>
     <div className='w-4/5 mx-auto pt-10'>
       <div className='flex relative'>
@@ -85,7 +91,7 @@ const Home = () => {
     </motion.div>
 
     </div>
-    </div>
+    </motion.div>
   )
 }
 
